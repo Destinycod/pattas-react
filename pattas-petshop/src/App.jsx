@@ -2,6 +2,7 @@ import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
+import ItemListContainer from './components/ItemListContainer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -40,6 +41,7 @@ function App() {
         </p>
       </header>
       <NavBar/>
+      <ItemListContainer greetings = "soy el greeting" />
     </div>
   )
 }
