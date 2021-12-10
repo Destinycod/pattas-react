@@ -24,7 +24,9 @@ function App() {
         <ItemCount minimo={minimo} stock={stock}/>
       <BrowserRouter/>*/}
       <NavBar />
-      <ItemListContainer greetings = "soy el greeting" />
+      <center>
+        <ItemListContainer greetings = "soy el greeting" />
+      </center>
     </div>
   )
 }

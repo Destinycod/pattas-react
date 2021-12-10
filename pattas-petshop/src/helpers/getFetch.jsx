@@ -6,9 +6,8 @@ const productos = [
 ];//
 
 export const getFetch = new Promise((resolve)=>{
-     // acciones pueden ser o no asincronícas setTime
      setTimeout(()=>{
          resolve(productos)
-     }, 3000)
-}) // instanciar un objeto 
+     }, 2000)
+}) 
 
