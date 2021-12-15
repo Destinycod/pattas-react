@@ -22,7 +22,7 @@ function ItemListContainer( {greetings} ){
             .catch(err => console.log(err))
             .finally(()=>setLoading(false))               
         
-    })  
+    }, [])  
     
     //console.log(idCate)
 
@@ -30,7 +30,8 @@ function ItemListContainer( {greetings} ){
     return (
         <div>
             {greetings}
-            { loading ? 
+            { loading 
+              ? 
                 <h2>Cargando...</h2> 
               :  
                <ItemList productos={productos} />
