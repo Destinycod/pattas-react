@@ -3,6 +3,7 @@ import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemListContainer'
 import ItemCount from './components/ItemCount/ItemCount'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 //import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <NavBar />
       <center>
         <ItemListContainer greetings = "soy el greeting" />
+        <ItemDetailContainer />
       </center>
     </div>
   )
