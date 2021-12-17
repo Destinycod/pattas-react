@@ -1,30 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { getFetch } from '../helpers/getFetch';
 import ItemList from './ItemList/ItemList';
+import { useParams } from 'react-router-dom';
 
 function ItemListContainer( {greetings} ){
 
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
 
-    //const { idCate } = useParams() 
+    const { idCategoria } = useParams() 
     
     
     useEffect(() => {
-        /*if (idCate) {
+        if (idCategoria) {
             getFetch
-            .then(resp => setProductos(resp.filter(prod => prod.categoria === idCate))) 
+            .then(resp => setProductos(resp.filter(prod => prod.categoria === idCategoria))) 
             .catch(err => console.log(err))
             .finally(()=>setLoading(false))            
-        } else {*/
+        } else {
             getFetch
             .then(resp => setProductos(resp)) 
             .catch(err => console.log(err))
             .finally(()=>setLoading(false))               
-        
-    }, [])  
-    
-    //console.log(idCate)
+        }
+    }, [idCategoria])
 
 
     return (

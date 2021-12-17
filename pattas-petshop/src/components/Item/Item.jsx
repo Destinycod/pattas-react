@@ -1,4 +1,4 @@
-//import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 function Item({prod}) {
     return (
@@ -14,10 +14,11 @@ function Item({prod}) {
                     <img src={prod.img} alt='' className='w-50' />                                                           
                 </div>
                 <div className="card-footer">  
-                <button className="btn btn-outline-primary btn-block">
-                    detalle del producto
-                </button>                                           
-                                                                                
+                <Link to={`/detalle/${prod.id}`}>
+                    <button className="btn btn-outline-primary btn-block">
+                        detalle del producto
+                    </button>
+                </Link>                                                         
                 </div>
             </div>
         </div>
