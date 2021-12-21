@@ -1,6 +1,6 @@
 import getProduct from '../../helpers/getProduct';
 
-const ItemDetail = ( { name, img, categoria } ) => {
+const ItemDetail = ( { product } ) => {
 
     return (
         <div>
