@@ -5,9 +5,9 @@ const ItemDetail = ( { name, img, categoria } ) => {
     return (
         <div>
             <h2>Item Detail</h2>
-            <h3>{`${name}`}</h3>
-            <img src={`${img}`} alt=" " />
-            <p>{`${categoria}`}</p>
+            <h3>{`${product.name}`}</h3>
+            <img src={`${product.img}`} alt=" " />
+            <p>{`${product.categoria}`}</p>
         </div>
     )
 }
