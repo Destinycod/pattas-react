@@ -6,7 +6,7 @@ import ItemListContainer from './components/ItemListContainer'
 import ItemCount from './components/ItemCount/ItemCount'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import CartWidget from './components/CartWidget';
+import CartContent from './components/CartContent/CartContent';
 
 function App() {
   // const minimo = 1;
@@ -23,7 +23,7 @@ function App() {
             element={ <ItemListContainer greetings = "soy el greeting" /> } 
             />
             <Route exact path="/carrito"
-            element={ <CartWidget /> } 
+            element={ <CartContent /> } 
             />
             <Route exact path="/detalle/:idItem"
             element={ <ItemDetailContainer /> } 

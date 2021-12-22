@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 
-const ItemCount = ( {minimo, stock, onAdd} ) => {
+const ItemCount = ( {stock, onAdd} ) => {
 
-    const [valor, setValor] = useState(minimo);
+    const [valor, setValor] = useState(1);
 
     const handleSuma=() => {
         valor < stock ? setValor (prev => prev + 1) : alert ('Compra máxima');
     }
 
     const handleResta=() => {
-        valor > minimo ? setValor (prev => prev - 1) : alert ('Compra mínima');
+        valor > 1 ? setValor (prev => prev - 1) : alert ('Compra mínima');
     }
 
     const aniadir=() =>{
@@ -17,7 +17,7 @@ const ItemCount = ( {minimo, stock, onAdd} ) => {
             alert(`Tu compra es de  ${valor}`)
         }
         else{
-            alert('Has ');
+            alert('Has superado el stock');
         }
     }
 
@@ -29,7 +29,7 @@ const ItemCount = ( {minimo, stock, onAdd} ) => {
                 <button onClick={handleSuma}>+</button>
             </div>
             <div>
-                <button onClick={aniadir}>Agregar</button>
+                <button onClick={aniadir, () => onAdd(valor)}>Agregar</button>
             </div>
         </div>
     )
