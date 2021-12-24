@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getFetch } from '../helpers/getFetch';
+import getFetch from '../helpers/getFetch';
 import ItemList from './ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 

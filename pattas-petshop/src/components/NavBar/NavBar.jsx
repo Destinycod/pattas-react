@@ -17,7 +17,7 @@ const NavBar = () => {
                         <Link to="/categoria/gorras">Gorras</Link>
                         <NavDropdown title="Categorias" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Remeras</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Gorras action</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">Gorras</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Tazas</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>

@@ -12,7 +12,6 @@ function ItemList({ productos }) {
             descripcion={prod.descripcion}
             precio={prod.precio}
             prod={prod} 
-            
             />)  }
         </>
     );
