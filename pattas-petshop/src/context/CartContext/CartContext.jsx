@@ -29,7 +29,7 @@ function CartContextProvider( {children} ){
     }
 
     function totalProducts () {
-        return cartList.reduce((acc, item) => acc + item.valor, 0);
+        return cartList.reduce((acc, item) => acc + item.quantity, 0);
     }
 
     function totalPrice () {
