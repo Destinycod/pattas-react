@@ -17,7 +17,6 @@ function CartContextProvider( {children} ){
         else{
             setCartList([...cartList, item]);
         }
-        
     }
 
     function vaciarCarrito(){

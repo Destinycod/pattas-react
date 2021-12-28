@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import getProduct from '../../helpers/getProduct';
-//import getFetch from '../../helpers/getFetch';
+import getFetch from '../../helpers/getFetch';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import {useParams} from 'react-router-dom';
 
@@ -9,7 +9,7 @@ const ItemDetailContainer = () => {
     const {idItem} = useParams();
 
     useEffect(() => {
-        getProduct
+        getFetch
         .then(resp => setProduct(resp.find(product => product.id === parseInt(idItem))))
         .catch(err => console.log(err))        
     }, []);
