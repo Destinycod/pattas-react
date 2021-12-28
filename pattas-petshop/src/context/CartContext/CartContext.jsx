@@ -10,9 +10,9 @@ function CartContextProvider( {children} ){
     function AddItem(item) {
         const index=cartList.findIndex(i=> i.id === item.id)
         if(index > -1){
-            const oldQuantity=cartList[index].cantidad
+            const oldQuantity=cartList[index].quantity
             cartList.splice(index,1)
-            setCartList([...cartList, {item, cantidad:item.cantidad + oldQuantity}])
+            setCartList([...cartList, {item, quantity:item.quantity + oldQuantity}])
         }
         else{
             setCartList([...cartList, item]);
@@ -24,21 +24,26 @@ function CartContextProvider( {children} ){
         setCartList([]);
     }
 
-    function removeItem(itemID){
-        const index=cartList.findIndex(i=> i.id === item.id)
-        if(index > -1){
-        }
-        else{
-            setCartList([...cartList, item]);
-        }
+    function removeItem(item){
+        setCartList(cartList.filter(product => product.id !== item.id));
     }
 
+    function totalProducts () {
+        return cartList.reduce((acc, item) => acc + item.valor, 0);
+    }
+
+    function totalPrice () {
+        return cartList.reduce((acc, product) => acc + product.price * product.quantity, 0);
+    }
+    
     return(
         <CartContext.Provider value={ {
             cartList,
             AddItem,
             vaciarCarrito,
-            removeItem
+            removeItem,
+            totalProducts,
+            totalPrice
         }}>
             {children}
         </CartContext.Provider>

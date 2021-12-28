@@ -4,16 +4,16 @@ import {Link} from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext/CartContext';
 
 
-const ItemDetail = ( { product } ) => {
+const ItemDetail = ( { product, onAdd } ) => {
 
     const [irCarrito, setIrCarrito] = useState(false);
 
     const {AddItem}= useCartContext()
 
-    const onAdd = (quantityToAdd) => {
+    onAdd = (quantityToAdd) => {
         console.log(quantityToAdd)
+        AddItem({...product, quantity:quantityToAdd})
         setIrCarrito(true);
-        AddItem({...product, cantidad:quantityToAdd})
     }
 
     return (
@@ -21,7 +21,7 @@ const ItemDetail = ( { product } ) => {
             <h2>Item Detail</h2>
             <h3>{`${product.name}`}</h3>
             <img src={`${product.img}`} alt=" " />
-            <p>{`${product.categoria}`}</p>
+            <p>{`${product.category}`}</p>
             {!irCarrito 
             ?
                 (<ItemCount stock={5} onAdd={onAdd}/>)
