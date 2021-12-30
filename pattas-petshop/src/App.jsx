@@ -9,8 +9,6 @@ import CartContent from './components/CartContent/CartContent';
 import CartContextProvider from './context/CartContext/CartContext';
 
 function App() {
-  // const minimo = 1;
-  // const stock = 5;
   return (
     <div className="App">
       <CartContextProvider>
@@ -21,7 +19,7 @@ function App() {
           <center>
             <Routes>
               <Route exact path="/"
-              element={ <ItemListContainer greetings = "soy el greeting" /> } 
+              element={ <ItemListContainer/> } 
               />
               <Route exact path="/carrito"
               element={ <CartContent /> } 
@@ -30,10 +28,9 @@ function App() {
               element={ <ItemDetailContainer /> } 
               />
               <Route exact path="/categoria/:idCategoria"
-              element={ <ItemListContainer greetings = "soy el greeting de categoria" /> } 
+              element={ <ItemListContainer /> } 
               />
             </Routes>
-            {/* <ItemCount minimo={minimo} stock={stock}/> */}
           </center>
         </BrowserRouter>
       </CartContextProvider>

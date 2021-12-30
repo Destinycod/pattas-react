@@ -8,10 +8,10 @@ function Item({prod}) {
         >                        
             <div className="card w-100 mt-5" >
                 <div className="card-header">
-                    {`${prod.name} - ${prod.categoria}`}
+                    {`${prod.name} - ${prod.category}`}
                 </div>
                 <div className="card-body">
-                    <img src={prod.img} alt='' className='w-50' />                                                           
+                    <img src={prod.imageID} alt='' className='w-50' />                                                           
                 </div>
                 <div className="card-footer">  
                 <Link to={`/detalle/${prod.id}`}>

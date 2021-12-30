@@ -7,7 +7,6 @@ import { useCartContext } from '../../context/CartContext/CartContext';
 const ItemDetail = ( { product, onAdd } ) => {
 
     const [irCarrito, setIrCarrito] = useState(false);
-
     const {AddItem}= useCartContext()
 
     onAdd = (quantityToAdd) => {
@@ -20,7 +19,7 @@ const ItemDetail = ( { product, onAdd } ) => {
         <div>
             <h2>Item Detail</h2>
             <h3>{`${product.name}`}</h3>
-            <img src={`${product.img}`} alt=" " />
+            <img src={`${product.imageID}`} alt=" " />
             <p>{`${product.category}`}</p>
             {!irCarrito 
             ?
