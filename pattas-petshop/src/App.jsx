@@ -1,12 +1,12 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemListContainer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartContent from './components/CartContent/CartContent';
 import CartContextProvider from './context/CartContext/CartContext';
+import Header from './components/Header/Header';
 
 function App() {
   return (
@@ -14,8 +14,9 @@ function App() {
       <CartContextProvider>
         <BrowserRouter>
           {/* <header className="App-header"> */}
-              <NavBar/>  
+              {/* <NavBar/>  */}
           {/*</header> */}
+          <Header/>
           <center>
             <Routes>
               <Route exact path="/"
