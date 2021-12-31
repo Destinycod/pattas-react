@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import CartWidget from "../CartWidget";
 import NavBar from "../NavBar/NavBar"
 //import './App.css'
 
@@ -35,6 +36,7 @@ const Header = () =>{
                         </nav> */}
                         <NavBar />
                     </div>
+                    <Link to="/carrito" ><CartWidget/></Link>
                 </div>
             </div>
         </div>

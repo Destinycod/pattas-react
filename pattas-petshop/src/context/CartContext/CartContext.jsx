@@ -4,7 +4,6 @@ const CartContext = createContext([])
 export const useCartContext = () => useContext(CartContext)
 
 function CartContextProvider( {children} ){
-
     const [cartList, setCartList] = useState([])
 
     function AddItem(item) {
@@ -12,7 +11,7 @@ function CartContextProvider( {children} ){
         if(index > -1){
             const oldQuantity=cartList[index].quantity
             cartList.splice(index,1)
-            setCartList([...cartList, {item, quantity:item.quantity + oldQuantity}])
+            setCartList([...cartList, {...item, quantity:item.quantity + oldQuantity}])
         }
         else{
             setCartList([...cartList, item]);
