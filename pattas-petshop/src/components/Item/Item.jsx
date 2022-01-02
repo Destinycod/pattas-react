@@ -8,7 +8,7 @@ function Item({prod}) {
         >                        
             <div className="card w-100 mt-5" >
                 <div className="card-header">
-                    {`${prod.name} - ${prod.category}`}
+                    {`${prod.trademark} - ${prod.name}`}
                 </div>
                 <div className="card-body">
                     <img src={prod.imageID} alt='' className='w-50' />                                                           

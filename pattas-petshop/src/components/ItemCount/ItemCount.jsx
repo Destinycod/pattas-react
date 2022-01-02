@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 
+
 const ItemCount = ( {stock, onAdd} ) => {
 
     const [valor, setValor] = useState(1);
@@ -22,16 +23,14 @@ const ItemCount = ( {stock, onAdd} ) => {
     }
 
     return(
-        <div>
-            <div>
-                <h1>{valor}</h1>
-                <button onClick={handleResta}>-</button>
-                <button onClick={handleSuma}>+</button>
+        <center>
+            <div className='alignCenter'>
+                <button onClick={handleResta}>-</button><h4>{valor}</h4><button onClick={handleSuma}>+</button>
             </div>
             <div>
-                <button onClick={aniadir, () => onAdd(valor)}>Agregar</button>
+                <button className='btnAnadirCarrito' onClick={aniadir, () => onAdd(valor)}>Agregar</button>
             </div>
-        </div>
+        </center>
     )
 
 }

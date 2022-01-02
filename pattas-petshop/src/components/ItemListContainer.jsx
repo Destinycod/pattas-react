@@ -4,7 +4,7 @@ import { collection, getDocs, getFirestore, query, where } from "firebase/firest
 import ItemList from './ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 
-function ItemListContainer( {greetings} ){
+function ItemListContainer(){
 
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
@@ -43,10 +43,9 @@ function ItemListContainer( {greetings} ){
 
     return (
         <div>
-            {greetings}
             { loading 
               ? 
-                <h2>Cargando...</h2> 
+              <img class="loadingImage" src='./src/assets/images/loadingRight.png'/> 
               :  
                <ItemList productos={productos} />
             }

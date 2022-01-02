@@ -7,6 +7,8 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import CartContent from './components/CartContent/CartContent';
 import CartContextProvider from './context/CartContext/CartContext';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Contacto from './components/Contacto/Contacto';
 
 function App() {
   return (
@@ -31,8 +33,12 @@ function App() {
               <Route exact path="/categoria/:idCategoria"
               element={ <ItemListContainer /> } 
               />
+              <Route exact path="/contacto"
+              element={ <Contacto /> } 
+              />
             </Routes>
           </center>
+          <Footer/>
         </BrowserRouter>
       </CartContextProvider>
     </div>

@@ -16,11 +16,11 @@ const ItemDetail = ( { product, onAdd } ) => {
     }
 
     return (
-        <div>
-            <h2>Item Detail</h2>
-            <h3>{`${product.name}`}</h3>
-            <img src={`${product.imageID}`} alt=" " />
+        <div className='itemDetail'>
+            <h3>{`${product.trademark} ${product.name}`}</h3>
             <p>{`${product.category}`}</p>
+            <img className="imgProducts" src={`${product.imageID}`} alt={product.name} />
+            
             {!irCarrito 
             ?
                 (<ItemCount stock={5} onAdd={onAdd}/>)

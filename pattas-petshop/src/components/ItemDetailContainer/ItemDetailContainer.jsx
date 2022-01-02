@@ -19,10 +19,10 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-            {<div className='border border-3 border-secondary'>
+            {<div>
             {loading 
               ? 
-                <h2>Cargando...</h2> 
+                <img class="loadingImage" src='../src/assets/images/loadingRight.png'/>
               :  
                 <ItemDetail product={product} />}                     
             </div>
