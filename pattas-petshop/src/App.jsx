@@ -19,7 +19,7 @@ function App() {
               {/* <NavBar/>  */}
           {/*</header> */}
           <Header/>
-          <center>
+          
             <Routes>
               <Route exact path="/"
               element={ <ItemListContainer/> } 
@@ -37,7 +37,6 @@ function App() {
               element={ <Contacto /> } 
               />
             </Routes>
-          </center>
           <Footer/>
         </BrowserRouter>
       </CartContextProvider>

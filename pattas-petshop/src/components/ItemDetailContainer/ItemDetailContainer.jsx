@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import {useParams} from 'react-router-dom';
 import { doc, getDoc, getFirestore } from "firebase/firestore";
+import LoadingImage from '../../assets/images/loadingRight.png';
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState([]);
@@ -22,7 +23,7 @@ const ItemDetailContainer = () => {
             {<div>
             {loading 
               ? 
-                <img class="loadingImage" src='../src/assets/images/loadingRight.png'/>
+                <img className="loadingImage" src={LoadingImage}/>
               :  
                 <ItemDetail product={product} />}                     
             </div>

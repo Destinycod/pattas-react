@@ -1,5 +1,5 @@
-import React from 'react'
-import Item from '../Item/Item'
+import React from 'react';
+import Item from '../Item/Item';
 
 function ItemList({ productos }) {
     return (
@@ -9,7 +9,6 @@ function ItemList({ productos }) {
             key={prod.id} 
             name={prod.name}
             imagen={prod.imagen}
-            descripcion={prod.descripcion}
             precio={prod.precio}
             prod={prod} 
             />)  }
@@ -18,3 +17,6 @@ function ItemList({ productos }) {
 }
 
 export default ItemList;
+
+
+

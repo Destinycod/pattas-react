@@ -1,5 +1,10 @@
-import { Link } from "react-router-dom"
-import Logo from "../../assets/images/logoSinFondo.png" 
+import { Link } from "react-router-dom";
+import Logo from "../../assets/images/logoSinFondo.png";
+import Twitter from "../../assets/images/twitter.png";
+import Facebook from "../../assets/images/facebook.png";
+import Whatsapp from "../../assets/images/whatsapp.png";
+import Instagram from "../../assets/images/instagram.png";
+
 const Footer = () =>{
     return(
         <div className="container-fluid footer">
@@ -14,7 +19,7 @@ const Footer = () =>{
                     <p>Preguntas Frecuentes<br/>Formas de pagos y envíos<br/>Servicios<br/><Link className="colFooter" to="/contacto">Contacto</Link></p>
                 </div>
                 <div className="col-lg-3 col-xs-12">
-                    <img src="./src/assets/images/twitter.png" alt="Twitter"/>&nbsp;<img src="./src/assets/images/facebook.png" alt="Facebook"/>&nbsp;<img src="./src/assets/images/instagram.png" alt="Instagram"/>&nbsp;<img src="./src/assets/images/whatsapp.png" alt="Whatsapp"/>
+                    <img src={Twitter} alt="Twitter"/>&nbsp;<img src={Facebook} alt="Facebook"/>&nbsp;<img src={Instagram} alt="Instagram"/>&nbsp;<img src={Whatsapp} alt="Whatsapp"/>
                 </div>
             </div>
             <div className="row centrado">

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {Link} from 'react-router-dom'
 
 function Item({prod}) {
@@ -16,7 +17,7 @@ function Item({prod}) {
                 <div className="card-footer">  
                 <Link to={`/detalle/${prod.id}`}>
                     <button className="btn btn-outline-primary btn-block">
-                        detalle del producto
+                        Detalle del producto
                     </button>
                 </Link>                                                         
                 </div>
@@ -25,4 +26,4 @@ function Item({prod}) {
     )
 }
 
-export default Item
+  export default Item;

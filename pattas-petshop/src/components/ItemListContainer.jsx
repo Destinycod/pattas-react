@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import ItemList from './ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import LoadingImage from '../assets/images/loadingRight.png';
 
 function ItemListContainer(){
 
@@ -45,9 +46,9 @@ function ItemListContainer(){
         <div>
             { loading 
               ? 
-              <img class="loadingImage" src='./src/assets/images/loadingRight.png'/> 
+              <img className="loadingImage" src={LoadingImage}/> 
               :  
-               <ItemList productos={productos} />
+              <ItemList productos={productos} />
             }
 
         </div>

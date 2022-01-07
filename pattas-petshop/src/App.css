@@ -455,12 +455,15 @@ button {
     font-weight: normal;
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
-    padding: 5px; }
+  }
   .footer .colFooter {
     color: white;
     text-decoration: none; }
   .footer .centrado {
     text-align: center; }
+  .footerD{
+    padding-top: 10px;
+  }
 
 /* FIN FOOTER */
 
