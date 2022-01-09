@@ -23,6 +23,13 @@
 
 
 @charset "UTF-8";
+/* CARRITO */
+.carrito{
+  align-items: center;
+  text-align: center;
+}
+/* FIN CARRITO */ 
+
 /* CONTACTO */
 .boton--enviar, .boton--resetear {
   width: 130px;
