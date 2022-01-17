@@ -104,7 +104,7 @@ function CartContent() {
             </>
             ) : (
             <div>
-                {/* {idOrder.length !==0 && idOrder} */}
+                 {idOrder.length !==0 && idOrder} 
                 {cartList.map (product => 
                     <ListGroup horizontal="lg" className="my-2" key={product.id} >
                         <ListGroup.Item>{product.name}</ListGroup.Item>
