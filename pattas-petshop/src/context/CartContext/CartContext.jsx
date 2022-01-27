@@ -33,6 +33,12 @@ function CartContextProvider( {children} ){
     function totalPrice () {
         return cartList.reduce((acc, product) => acc + product.price * product.quantity, 0);
     }
+
+    const [dataForm, setDataForm] = useState({
+        name: "",
+        emai: "",
+        emailConfirm: ""
+    })
     
     return(
         <CartContext.Provider value={ {
@@ -41,7 +47,9 @@ function CartContextProvider( {children} ){
             vaciarCarrito,
             removeItem,
             totalProducts,
-            totalPrice
+            totalPrice,
+            dataForm,
+            setDataForm
         }}>
             {children}
         </CartContext.Provider>

@@ -1,52 +1,55 @@
 import { Link } from "react-router-dom";
-import { ListGroup } from "react-bootstrap";
-import { useCartContext } from "../../context/CartContext/CartContext";
+import { Button, Container, ListGroup, Table } from "react-bootstrap";
 import { useState } from "react";
 import { addDoc, collection, getFirestore, Timestamp } from "firebase/firestore";
 import './CartContent.css';
+import Checkout from "../CheckoutForm/Checkout";
+import { useCartContext } from "../../context/CartContext/CartContext";
+import useFormatNumber from "../../helpers/useFormatNumber";
 
 function CartContent() {
     const [idOrder, setIdOrder]=useState('')
-    const {cartList, vaciarCarrito, removeItem, totalPrice}= useCartContext()
+    const {cartList, vaciarCarrito, removeItem, totalPrice}= useCartContext();
+    const { formatNumber } = useFormatNumber();
 
-    const [order, setOrder] = useState({
-        date: new Date(),
-        items: cartList.map((item) => ({
-          id: item.id,
-          title: item.name,
-          quantity: item.quantity,
-          price: item.price * item.quantity,
-        })),
-        status: "Generada, pendiente de envío",
-        //quantity: cartList.reduce((acc, item) => acc + item.quantity, 0),
-        total: totalPrice(),
-      });
+    // const [order, setOrder] = useState({
+    //     date: new Date(),
+    //     items: cartList.map((item) => ({
+    //       id: item.id,
+    //       title: item.name,
+    //       quantity: item.quantity,
+    //       price: item.price * item.quantity,
+    //     })),
+    //     status: "Generada, pendiente de envío",
+    //     //quantity: cartList.reduce((acc, item) => acc + item.quantity, 0),
+    //     total: totalPrice(),
+    //   });
 
 
-      const createOrder = (e) => {
-        e.preventDefault();
-        const db = getFirestore();
-        const orderCollection = collection(db, "orders");
+    //   const createOrder = (e) => {
+    //     e.preventDefault();
+    //     const db = getFirestore();
+    //     const orderCollection = collection(db, "orders");
         
-          try {
-            const response = addDoc(orderCollection, order);
-            setIdOrder(response.id);
-            // if (response.id) {
-            //   toast(`Su orden ${response.id} fue generada exitosamente`, {
-            //     position: "top-center",
-            //     autoClose: false,
-            //     hideProgressBar: false,
-            //     closeOnClick: false,
-            //     pauseOnHover: true,
-            //     draggable: true,
-            //     progress: true,
-            //     closeButton: false,
-            //   });
-            // }
-          } finally {
-            borrarCarrito();
-          }
-        }
+    //       try {
+    //         const response = addDoc(orderCollection, order);
+    //         setIdOrder(response.id);
+    //         // if (response.id) {
+    //         //   toast(`Su orden ${response.id} fue generada exitosamente`, {
+    //         //     position: "top-center",
+    //         //     autoClose: false,
+    //         //     hideProgressBar: false,
+    //         //     closeOnClick: false,
+    //         //     pauseOnHover: true,
+    //         //     draggable: true,
+    //         //     progress: true,
+    //         //     closeButton: false,
+    //         //   });
+    //         // }
+    //       } finally {
+    //         borrarCarrito();
+    //       }
+    //     }
 
 
 
@@ -79,9 +82,7 @@ function CartContent() {
     //         })
     //     })
 
-    const handleChange = (e) => {setOrder({...order, [e.target.name]: e.target.value,})};
-
-    
+    const handleChange = (e) => {setIdOrder({...order, [e.target.name]: e.target.value,})};
     const generateOrder = (event) =>{
         event.preventDefault();
 
@@ -116,8 +117,6 @@ function CartContent() {
 
         const batch = writeBatch(db)
 
-       
-        //console.log(queryActulizar)
         getDocs(queryActulizarStock)
         .then(resp => resp.docs.forEach(res => batch.update(res.ref, {
             stock: resp.data().stock - cartList.find(item => item.id === resp.id).cantidad
@@ -128,20 +127,72 @@ function CartContent() {
     }
 
     
-
+    if(idOrder){
+      return(
+        <Container className="container--order">
+                <h2>Compra realizada con éxito</h2>
+                <p>Tu número de orden es: <strong>{orderId}</strong>.</p>
+                <Button>
+                    Ir a tienda
+                </Button>
+            </Container>
+      )
+    }
 
     return (
-        <div className="carrito">
-            <h2>Carrito de Compras</h2>
-            {cartList > 0 ? ( <CheckoutForm order={order} createOrder={createOrder} handleChange={handleChange}/>
-            ):
-            (
-                <div className="order">
-                  {idOrder ? (<CheckoutSuccess orderId={idOrder} order={order}/>)
-                  :
-                  (<Link to="/">Volver a la tienda</Link>)}
-                </div>
-              )}
+      <>
+          {cartList.length === 0 ? (
+              <Container>
+                  <h3>Aún no agregaste productos al carrito</h3>
+                  <Link to="/"><Button>
+                      Ir a tienda
+                  </Button></Link>
+              </Container>
+          ) : (
+              <Container>
+                  <div>
+                      <h3>Resumen compra:</h3>
+                      <Table striped bordered hover>
+                          <thead>
+                              <tr>
+                                  <th>Nombre</th>
+                                  <th>Cantidad</th>
+                                  <th>Precio por unidad</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              {cartList.map(product =>
+                                  <tr key={product.id}>
+                                      <td>{product.name}</td>
+                                      <td>x{product.quantity}</td>
+                                      <td>{formatNumber(product.price)}</td>
+                                  </tr>)}
+                          </tbody>
+                      </Table>
+                      {/* Total compra */}
+                      <p>Total de la compra: {formatNumber(totalPrice())}</p>
+                  </div>
+
+                  {/* Formulario finalizar compra */}
+                  <h3 style={{fontSize: 30}}>Completar los siguientes datos:</h3>
+                  <Checkout change={handleChange} send={generateOrder} />
+              </Container>
+          )}
+      </>
+  )
+
+    // return (
+    //     <div className="carrito">
+    //         <h2>Carrito de Compras</h2>
+    //         {cartList > 0 ? ( <CheckoutForm order={order} createOrder={createOrder} handleChange={handleChange}/>
+    //         ):
+    //         (
+    //             <div className="order">
+    //               {idOrder ? (<CheckoutSuccess orderId={idOrder} order={order}/>)
+    //               :
+    //               (<Link to="/">Volver a la tienda</Link>)}
+    //             </div>
+    //           )}
 
 
             {/* <>
@@ -167,8 +218,8 @@ function CartContent() {
                 <Link to="/"><button id="botonNaranja">Volver al Home</button></Link>
             </div>)
             } */}
-        </div>
-    )
+        
+    //)
     
 }
 
