@@ -87,7 +87,7 @@ function Checkout({ send, change }) {
                                     required
                                     defaultValue={dataForm.name}
                                     onBlur={handleBlur} />
-                                <ErrorMessage name="name" component="span" className="validate--error" />
+                                <ErrorMessage name="name" component="span"/>
                             </Form.Group>
                         </Row>
                         <Row>
@@ -101,7 +101,7 @@ function Checkout({ send, change }) {
                                     required
                                     defaultValue={dataForm.email}
                                     onBlur={handleBlur} />
-                                <ErrorMessage name="email" component="span" className="validate--error" />
+                                <ErrorMessage name="email" component="span"/>
                             </Form.Group>
                             <Form.Group className="mb-3 w-50">
                                 <Form.Label>Confirmación Email</Form.Label>
@@ -114,7 +114,7 @@ function Checkout({ send, change }) {
                                     onBlur={handleBlur} />
                             </Form.Group>
                         </Row>
-                        <button type="submit" disabled={ dataForm.name === '' || dataForm.email === '' || dataForm.email !== dataForm.emailConfirm ? true : false || isValid === false } onClick={send} className="btn--checkout w-100">
+                        <button type="submit" disabled={ dataForm.name === '' || dataForm.email === '' || dataForm.email !== dataForm.emailConfirm ? true : false || isValid === false } onClick={send} className="w-100">
                             Generar orden
                         </button>
                     </Form>

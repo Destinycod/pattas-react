@@ -9,7 +9,7 @@ import useFormatNumber from "../../helpers/useFormatNumber";
 
 function CartContent() {
     const [idOrder, setIdOrder]=useState('')
-    const {cartList, vaciarCarrito, removeItem, totalPrice}= useCartContext();
+    const {cartList, vaciarCarrito, removeItem, totalPrice, dataForm, setDataForm}= useCartContext();
     const { formatNumber } = useFormatNumber();
 
     // const [order, setOrder] = useState({
@@ -82,7 +82,7 @@ function CartContent() {
     //         })
     //     })
 
-    const handleChange = (e) => {setIdOrder({...order, [e.target.name]: e.target.value,})};
+    
     const generateOrder = (event) =>{
         event.preventDefault();
 
@@ -93,8 +93,9 @@ function CartContent() {
         order.items=cartList.map(cartItems=>{
             const id=cartItems.id;
             const name=cartItems.name;
+            const quantity=cartItems.quantity;
             const price=cartItems.price * cartItems.quantity;
-            return {id,name,price}
+            return {id,name,quantity,price}
         });
         order.date=Timestamp.fromDate(new Date());
 
@@ -103,11 +104,11 @@ function CartContent() {
 
         addDoc(orderCollection,order) //agrega la orden y crea la collección "orders" si no existe en la base de datos
         .then(answer => setIdOrder(answer.id))
-        .finally(()=> {
-            borrarCarrito()
+        .finally(()=> {   
             setDataForm({
-                name:"", email:"", phone:""
+                name:"", email:"", emailConfirm: ""
             })
+            vaciarCarrito()
         })
 
         const cleccionNoti = collection(db, 'items')
@@ -126,12 +127,19 @@ function CartContent() {
 
     }
 
+    //const handleChange = (e) => {setIdOrder({...order, [e.target.name]: e.target.value,})};
+    const handleChange = (e) => {
+      setDataForm({
+          ...dataForm,
+          [e.target.name]: e.target.value
+      })
+  }
     
     if(idOrder){
       return(
         <Container className="container--order">
                 <h2>Compra realizada con éxito</h2>
-                <p>Tu número de orden es: <strong>{orderId}</strong>.</p>
+                <p>Tu número de orden es: <strong>{idOrder}</strong>.</p>
                 <Button>
                     Ir a tienda
                 </Button>
