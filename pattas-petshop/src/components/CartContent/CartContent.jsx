@@ -66,33 +66,8 @@ function CartContent() {
 
     }
 
-    // const generarOrden = (e) =>{
-    //     e.preventDefault()  
-        
-    //     // Nuevo objeto de orders    
-    //     let orden = {}
-    //     orden.date = Timestamp.fromDate(new Date())
-    //     //firebase.firestore.Timestamp.fromDate(new Date()); 
+    
 
-    //     orden.buyer = dataForm
-    //     orden.total = totalPrice();
-
-    //     orden.items = cartList.map(cartItem => {
-    //         const id = cartItem.id;
-    //         const nombre = cartItem.name;
-    //         const precio = cartItem.price * cartItem.quantity;
-            
-    //         return {id, nombre, precio}   
-    //     })
-
-    //     // Generar la orden 
-    //     const db = getFirestore()
-    //     const ordenColeccion = collection(db, 'orders')
-    //     addDoc(ordenColeccion, orden)
-    //     .then(resp => setIdOrder(resp.id))
-    //     .catch(err => console.log(err))
-        
-    // }
 
     return (
         <div className="carrito">
