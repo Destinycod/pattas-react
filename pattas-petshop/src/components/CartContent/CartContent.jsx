@@ -23,6 +23,7 @@ function CartContent() {
       });
 
 
+<<<<<<< HEAD
       const createOrder = (e) => {
         e.preventDefault();
         const db = getFirestore();
@@ -82,6 +83,55 @@ function CartContent() {
     const handleChange = (e) => {setOrder({...order, [e.target.name]: e.target.value,})};
 
     
+=======
+    const generateOrder = (event) =>{
+        event.preventDefault();
+
+        let order={}
+
+        order.buyer=dataForm;
+        order.total=totalPrice();
+        order.items=cartList.map(cartItems=>{
+            const id=cartItems.id;
+            const name=cartItems.name;
+            const price=cartItems.price * cartItems.quantity;
+            return {id,name,price}
+        });
+        order.date=Timestamp.fromDate(new Date());
+
+        const dataBase=getFirestore()
+        const orderCollection=collection(dataBase,'orders')
+
+        addDoc(orderCollection,order) //agrega la orden y crea la collección "orders" si no existe en la base de datos
+        .then(answer => setIdOrder(answer.id))
+        .finally(()=> {
+            borrarCarrito()
+            setDataForm({
+                name:"", email:"", phone:""
+            })
+        })
+
+        const cleccionNoti = collection(db, 'items')
+        const queryActulizarStock = query(
+            cleccionNoti, where( documentId() , 'in', cartList.map(it => it.id))          
+        )
+
+        const batch = writeBatch(db)
+
+       
+        //console.log(queryActulizar)
+        getDocs(queryActulizarStock)
+        .then(resp => resp.docs.forEach(res => batch.update(res.ref, {
+            stock: resp.data().stock - cartList.find(item => item.id === resp.id).cantidad
+        }) ))
+
+        batch.commit()
+
+    }
+
+    
+
+>>>>>>> a9b8251e82c827c0a8528fa2e2bea5355e524832
 
     return (
         <div className="carrito">
