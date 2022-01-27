@@ -23,7 +23,6 @@ function CartContent() {
       });
 
 
-<<<<<<< HEAD
       const createOrder = (e) => {
         e.preventDefault();
         const db = getFirestore();
@@ -83,7 +82,6 @@ function CartContent() {
     const handleChange = (e) => {setOrder({...order, [e.target.name]: e.target.value,})};
 
     
-=======
     const generateOrder = (event) =>{
         event.preventDefault();
 
@@ -131,7 +129,6 @@ function CartContent() {
 
     
 
->>>>>>> a9b8251e82c827c0a8528fa2e2bea5355e524832
 
     return (
         <div className="carrito">
@@ -142,7 +139,7 @@ function CartContent() {
                 <div className="order">
                   {idOrder ? (<CheckoutSuccess orderId={idOrder} order={order}/>)
                   :
-                  (<Link to="/hopepetshop/all" className="backStore">Volver a la tienda</Link>)}
+                  (<Link to="/">Volver a la tienda</Link>)}
                 </div>
               )}
 
