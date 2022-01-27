@@ -4,6 +4,7 @@ import Twitter from "../../assets/images/twitter.png";
 import Facebook from "../../assets/images/facebook.png";
 import Whatsapp from "../../assets/images/whatsapp.png";
 import Instagram from "../../assets/images/instagram.png";
+import './Footer.css';
 
 const Footer = () =>{
     return(

@@ -23,9 +23,9 @@ const ItemDetail = ( { product, onAdd } ) => {
             
             {!irCarrito 
             ?
-                (<ItemCount stock={5} onAdd={onAdd}/>)
+                (<div> <ItemCount stock={5} onAdd={onAdd}/> </div>)
             :
-                (<Link to="/carrito"> Ir al Carrito </Link>)
+                (<Link to="/carrito"> <button id='botonNaranja'>Ir al Carrito</button> </Link>)
             }
             
         </div>

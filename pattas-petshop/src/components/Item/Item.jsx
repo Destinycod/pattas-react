@@ -1,22 +1,20 @@
-import { memo } from 'react';
-import {Link} from 'react-router-dom'
-
-function Item({prod}) {
+import {Link} from 'react-router-dom';
+import "./Item.css"
+function Item ({prod}){
     return (
-        <div 
+        <div className='itemCss'
             key={prod.id}
-            className='col-md-4'
         >                        
-            <div className="card w-100 mt-5" >
+            <div className="card" >
                 <div className="card-header">
                     {`${prod.trademark} - ${prod.name}`}
                 </div>
                 <div className="card-body">
-                    <img src={prod.imageID} alt='' className='w-50' />                                                           
+                    <img className="imgProducts" src={prod.imageID} alt=''/>                                                           
                 </div>
                 <div className="card-footer">  
                 <Link to={`/detalle/${prod.id}`}>
-                    <button className="btn btn-outline-primary btn-block">
+                    <button id="botonNaranja">
                         Detalle del producto
                     </button>
                 </Link>                                                         
@@ -24,6 +22,7 @@ function Item({prod}) {
             </div>
         </div>
     )
+
 }
 
-  export default Item;
+export default Item;

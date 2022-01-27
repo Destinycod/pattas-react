@@ -15,11 +15,7 @@ function App() {
     <div className="App">
       <CartContextProvider>
         <BrowserRouter>
-          {/* <header className="App-header"> */}
-              {/* <NavBar/>  */}
-          {/*</header> */}
           <Header/>
-          
             <Routes>
               <Route exact path="/"
               element={ <ItemListContainer/> } 
@@ -34,6 +30,9 @@ function App() {
               element={ <ItemListContainer /> } 
               />
               <Route exact path="/contacto"
+              element={ <Contacto /> } 
+              />
+              <Route exact path="/comprar"
               element={ <Contacto /> } 
               />
             </Routes>

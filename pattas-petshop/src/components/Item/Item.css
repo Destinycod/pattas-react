@@ -1,0 +1,30 @@
+.itemCss{
+    display: inline-flex;
+    align-items: center;
+    padding: 10px;
+}
+.card{
+    max-width: 30rem;
+}
+#botonNaranja {
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgb(225, 76, 65);
+    border-radius: 10%;
+    padding: 10px 20px;
+    transition: all .3s;
+}
+#botonNaranja:hover {
+    cursor: pointer;
+    color: rgb(225, 76, 65);
+    background-color: white;
+}
+#botonNaranja:focus {
+    outline: none;
+}
+.imgProducts{
+    width: auto;
+    height: 20rem;
+}

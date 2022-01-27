@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-//import getFetch from '../helpers/getFetch';
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import ItemList from './ItemList/ItemList';
 import { useParams } from 'react-router-dom';
@@ -43,7 +42,7 @@ function ItemListContainer(){
 
 
     return (
-        <div>
+        <div className='itemContainer'>
             { loading 
               ? 
               <img className="loadingImage" src={LoadingImage}/> 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCartContext } from '../context/CartContext/CartContext';
+import "./Header/Header.css"
 
 function CartWidget(){
     const {cartList, totalProducts} = useCartContext();

@@ -23,14 +23,14 @@ const ItemCount = ( {stock, onAdd} ) => {
     }
 
     return(
-        <center>
+        <div>
             <div className='alignCenter'>
-                <button onClick={handleResta}>-</button><h4>{valor}</h4><button onClick={handleSuma}>+</button>
+                <button id='botonNaranja' onClick={handleResta}> - </button><h4>{valor}</h4><button id='botonNaranja' onClick={handleSuma}> + </button>
             </div>
-            <div>
-                <button className='btnAnadirCarrito' onClick={aniadir, () => onAdd(valor)}>Agregar</button>
+            <div className='alignCenter'>
+                <button id='botonNaranja' onClick={aniadir, () => onAdd(valor)}>Agregar al Carrito</button>
             </div>
-        </center>
+        </div>
     )
 
 }

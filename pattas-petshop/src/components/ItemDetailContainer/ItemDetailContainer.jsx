@@ -20,7 +20,7 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-            {<div>
+            {<div className='itemDetailContainer'>
             {loading 
               ? 
                 <img className="loadingImage" src={LoadingImage}/>

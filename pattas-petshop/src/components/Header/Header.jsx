@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import CartWidget from "../CartWidget";
 import NavBar from "../NavBar/NavBar";
 import Logo from "../../assets/images/logoSinFondo.png";
+import "./Header.css";
 
 const Header = () =>{
 
