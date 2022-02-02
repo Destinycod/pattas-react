@@ -1,7 +1,0 @@
-[{"id":1,"nombre":"Dog Chow", "tamanio": "Razas Medianas y Grandes", "edad": "Adultos", "peso": 15.0, "precio": 2850.00,"imagen":"../img/dog-chow-MyG.png","marca":"DOG CHOW", "cantidad":1},
-{"id":2,"nombre":"Raza Control de Peso","tamanio": "Todas las Razas", "edad": "Adultos", "peso": 5.0, "precio": 1200.00,"imagen":"../img/raza-control-de-peso-gatos.jpg","marca":"RAZA", "cantidad":1},
-{"id":3,"nombre":"Euknuba Senior","tamanio": "Razas Medianas", "edad": "Adultos", "peso": 7.5, "precio": 1900.00,"imagen":"../img/eukanuba-senior-M.png","marca":"EUKANUBA", "cantidad":1},
-{"id":4,"nombre":"Pedigree Carne Y Vegetales", "tamanio": "Razas Medianas y Grandes", "edad": "Adultos", "peso": 10.0, "precio": 3120.00,"imagen":"https://www.pedigree.com.ar/wp-content/uploads/2018/09/PEDIGREE-ADULTO-VERDURA.png","marca":"PEDIGREE", "cantidad":1},
-{"id":5,"nombre":"Purina Pro Plan Pollo En Salsa","tamanio": "Todas Las Razas", "edad": "Adultos", "peso": 0.1, "precio": 450.00,"imagen":"https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/kraken_generic_max_width_600/public/Purina%C2%AE%20Proplan%C2%AE%20Adult%20Pollo%20en%20salsa_0.png?itok=PFetnLE6","marca":"PURINA PRO PLAN", "cantidad":1},
-{"id":6,"nombre":"Sieger Kitten","tamanio": "Todas Las Razas", "edad": "Cachorros", "peso": 1, "precio": 1500.00,"imagen":"https://www.sieger.com.ar/images/packs/katze-kitten.png","marca":"SIEGER", "cantidad":1}
-]
