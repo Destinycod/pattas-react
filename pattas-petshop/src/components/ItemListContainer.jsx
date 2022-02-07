@@ -6,40 +6,20 @@ import LoadingImage from '../assets/images/loadingRight.png';
 
 function ItemListContainer(){
 
-    const [productos, setProductos] = useState([])
-    const [loading, setLoading] = useState(true)
-    const { idCategoria } = useParams() 
+  const [productos, setProductos] = useState([])
+  const [loading, setLoading] = useState(true)
+  const { idCategoria } = useParams() 
 
-    useEffect(() => {
-        const db = getFirestore();
-        if(idCategoria) {
-          const queryProducts = query(collection(db, 'products'), where('category', '==', idCategoria));
-          getDocs(queryProducts)
-          .then(resp => { setProductos( resp.docs.map(product => ({id: product.id, ...product.data()}))); 
-          setLoading(false); })
-        } else {
-          const queryProducts = collection(db, 'products');
-          getDocs(queryProducts)
-          .then(resp => { setProductos( resp.docs.map(product => ({id: product.id, ...product.data()})) ); 
-          setLoading(false); })
-        }
-      }, [idCategoria]);
-    
-    
-    // useEffect(() => {
-    //     if (idCategoria) {
-    //         getFetch
-    //         .then(resp => setProductos(resp.filter(prod => prod.category === idCategoria))) 
-    //         .catch(err => console.log(err))
-    //         .finally(()=>setLoading(false))            
-    //     } else {
-    //         getFetch
-    //         .then(resp => setProductos(resp)) 
-    //         .catch(err => console.log(err))
-    //         .finally(()=>setLoading(false))               
-    //     }
-    // }, [idCategoria])
-
+  useEffect( ()=>{
+    const db = getFirestore();
+    const queryProducts = idCategoria ? 
+      query(collection(db, 'products'), where('category', '==', idCategoria))
+    :
+      collection(db, 'products');
+    getDocs(queryProducts)
+    .then(resp => { setProductos( resp.docs.map(product => ({id: product.id, ...product.data()})) ); 
+    setLoading(false); })
+  }, [idCategoria]);
 
     return (
         <div className='itemContainer'>
